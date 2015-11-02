@@ -7,18 +7,18 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println(doMath(9));
-        printHeadsOrTails();
+        System.out.println(factorial(6));
+        System.out.println(fibonnaci(6));
     }
 
-    public static int doMath(int n) {
-        if (n <= 3) {
-            return 3;
+    public static int factorial(int n) {
+        return n != 1 ? n * factorial(n - 1) : 1;
+    }
+
+    public static int fibonnaci(int n) {
+        if (n <= 1) {
+            return n;
         }
-        return n * doMath(n - 1);
-    }
-
-    public static void printHeadsOrTails() {
-        System.out.println(new Random().nextInt(2) == 0 ? "heads" : "tails");
+        return fibonnaci(n - 1) + fibonnaci(n - 2);
     }
 }
