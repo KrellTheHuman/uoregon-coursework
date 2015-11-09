@@ -7,8 +7,8 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println(factorial(6));
-        System.out.println(fibonacci(6));
+        //System.out.println(factorial(6));
+        //System.out.println(fibonacci(6));
     }
 
     public static int factorial(int n) {
@@ -21,4 +21,6 @@ public class Main {
         }
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
+
+    
 }
