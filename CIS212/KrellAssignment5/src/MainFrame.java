@@ -6,7 +6,7 @@ public class MainFrame extends JFrame {
     private MainPanel _mainPanel;
 
     public MainFrame() {
-        super("Sort Comparison");
+        super("Krell's Sort Comparison");
 
         setLayout(new BorderLayout());
 

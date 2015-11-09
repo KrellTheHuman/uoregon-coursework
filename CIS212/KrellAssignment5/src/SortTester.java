@@ -6,7 +6,7 @@ public class SortTester {
 
         PhonebookEntry minEntry = phonebookEntries.get(0);
         for (PhonebookEntry phonebookEntry : phonebookEntries) {
-            if (phonebookEntry.getLastName().compareTo(minEntry.getLastName()) < 0) {
+            if (phonebookEntry.getFullName().compareTo(minEntry.getFullName()) < 0) {
                 return false;
             }
             minEntry = phonebookEntry;

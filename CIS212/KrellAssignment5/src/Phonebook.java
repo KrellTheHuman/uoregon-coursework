@@ -24,7 +24,8 @@ public class Phonebook {
                 PhonebookEntry phonebookEntry = new PhonebookEntry(
                         Integer.parseInt(splitEntry[0]),
                         splitEntry[1],
-                        splitEntry[2]
+                        splitEntry[2],
+                        splitEntry[1] + " " + splitEntry[2]
                 );
                 _phonebookEntries.add(phonebookEntry);
                 entry = bufferedReader.readLine();

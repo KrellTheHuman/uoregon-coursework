@@ -3,17 +3,20 @@ public class PhonebookEntry {
     private int _phoneNumber;
     private String _lastName;
     private String _firstName;
+    private String _fullName;
 
-    public PhonebookEntry(int phoneNumber, String lastName, String firstName) {
+    public PhonebookEntry(int phoneNumber, String lastName, String firstName, String fullName) {
         setPhoneNumber(phoneNumber);
         setLastName(lastName);
         setFirstName(firstName);
+        setFullName(fullName);
     }
 
     public PhonebookEntry(PhonebookEntry phonebookEntry) {
         setPhoneNumber(phonebookEntry.getPhoneNumber());
         setLastName(phonebookEntry.getLastName());
         setFirstName(phonebookEntry.getFirstName());
+        setFullName(phonebookEntry.getFullName());
     }
 
     public int getPhoneNumber() {
@@ -38,6 +41,14 @@ public class PhonebookEntry {
 
     public void setFirstName(String firstName) {
         _firstName = firstName;
+    }
+
+    public String getFullName() {
+        return _fullName;
+    }
+
+    public void setFullName(String fullName) {
+        _fullName = fullName;
     }
 
     @Override

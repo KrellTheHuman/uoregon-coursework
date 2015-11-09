@@ -47,7 +47,7 @@ public class MergeSorter {
         ArrayList<PhonebookEntry> list = new ArrayList<>();
 
         while (listA.size() > 0 && listB.size() > 0) {
-            if (listA.get(0).getLastName().compareTo(listB.get(0).getLastName()) > 0) {
+            if (listA.get(0).getFullName().compareTo(listB.get(0).getFullName()) > 0) {
                 list.add(listB.get(0));
                 listB.remove(0);
             } else {

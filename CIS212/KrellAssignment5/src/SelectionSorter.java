@@ -26,7 +26,7 @@ public class SelectionSorter {
 
         while (minEntryIndex < sortPhonebookEntries.size()) {
             for (int i = minEntryIndex; i < sortPhonebookEntries.size(); i++) {
-                if (sortPhonebookEntries.get(minEntryIndex).getLastName().compareTo(sortPhonebookEntries.get(i).getLastName()) > 0) {
+                if (sortPhonebookEntries.get(minEntryIndex).getFullName().compareTo(sortPhonebookEntries.get(i).getFullName()) > 0) {
                     // simple swap
                     PhonebookEntry temp = new PhonebookEntry(sortPhonebookEntries.get(minEntryIndex));
                     sortPhonebookEntries.set(minEntryIndex, sortPhonebookEntries.get(i));
