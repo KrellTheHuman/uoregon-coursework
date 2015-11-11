@@ -12,6 +12,8 @@ public class Phonebook {
         readPhonebookFile(textFile);
     }
 
+    // reads in file, populates an ArrayList of PhonebookEntry objects
+    // inspired by Nisansa's lab demonstration
     private void readPhonebookFile(String textFile) {
         try {
             FileReader fileReader = new FileReader(textFile);
@@ -19,12 +21,9 @@ public class Phonebook {
             String entry = bufferedReader.readLine();
 
             while(entry != null) {
-                entry = entry.replace(",", "");
                 String[] splitEntry = entry.split(" ");
                 PhonebookEntry phonebookEntry = new PhonebookEntry(
                         Integer.parseInt(splitEntry[0]),
-                        splitEntry[1],
-                        splitEntry[2],
                         splitEntry[1] + " " + splitEntry[2]
                 );
                 _phonebookEntries.add(phonebookEntry);

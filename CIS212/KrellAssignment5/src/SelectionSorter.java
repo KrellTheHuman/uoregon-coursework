@@ -6,6 +6,7 @@ public class SelectionSorter {
     public static int selectionSortComparisons = 0;
     private static Stopwatch _stopwatch = new Stopwatch();
 
+    // called when button clicked
     public static void performSelectionSort() {
         Thread thread = new Thread(() -> {
             selectionSortTime = "sorting...";
@@ -18,6 +19,7 @@ public class SelectionSorter {
         thread.start();
     }
 
+    // actual selection sort method
     public static ArrayList<PhonebookEntry> selectionSort(ArrayList<PhonebookEntry> phonebookEntries) {
 
         ArrayList<PhonebookEntry> sortPhonebookEntries = new ArrayList<>(phonebookEntries);

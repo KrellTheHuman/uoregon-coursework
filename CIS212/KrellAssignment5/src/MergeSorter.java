@@ -6,6 +6,7 @@ public class MergeSorter {
     public static int mergeSortComparisons = 0;
     private static Stopwatch _stopwatch = new Stopwatch();
 
+    // called when button clicked
     public static void performMergeSort() {
         Thread thread = new Thread(() -> {
             mergeSortTime = "sorting...";
@@ -18,6 +19,7 @@ public class MergeSorter {
         thread.start();
     }
 
+    // actual merge sort method
     public static ArrayList<PhonebookEntry> mergeSort(ArrayList<PhonebookEntry> phonebookEntries) {
 
         ArrayList<PhonebookEntry> sortPhonebookEntries = new ArrayList<>(phonebookEntries);
@@ -26,6 +28,7 @@ public class MergeSorter {
         return mergeSortDivide(sortPhonebookEntries);
     }
 
+    // recursively splits list in half, and when done, calls merge
     private static ArrayList<PhonebookEntry> mergeSortDivide(ArrayList<PhonebookEntry> list) {
 
         if (list.size() == 1) return list;
@@ -41,6 +44,7 @@ public class MergeSorter {
         return mergeSortMerge(listA, listB);
     }
 
+    // merges two lists into one, comparing first elements if present
     // inspired by pseudo-code from http://www.algorithmist.com/index.php/Merge_sort
     private static ArrayList<PhonebookEntry> mergeSortMerge(ArrayList<PhonebookEntry> listA, ArrayList<PhonebookEntry> listB) {
 

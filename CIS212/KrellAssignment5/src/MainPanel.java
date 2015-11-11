@@ -49,6 +49,7 @@ public class MainPanel extends JPanel implements ActionListener {
         updateText();
     }
 
+    // update JLabel text to show number status, sort time, and number of comparisons
     public static void updateText() {
         Thread thread = new Thread(() -> {
             while (true) {
@@ -66,6 +67,7 @@ public class MainPanel extends JPanel implements ActionListener {
         thread.start();
     }
 
+    // enable respective button (called after sorting complete)
     public static void enableSelectionSortButton() {
         _selectionSortButton.setEnabled(true);
     }
@@ -74,6 +76,7 @@ public class MainPanel extends JPanel implements ActionListener {
         _mergeSortButton.setEnabled(true);
     }
 
+    // get which button was clicked; disable button while sorting; call respective sort
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == _selectionSortButton) {

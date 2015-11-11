@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class SortTester {
 
+    // called after each sort
     public static boolean testAlphaSort(ArrayList<PhonebookEntry> phonebookEntries) {
 
         PhonebookEntry minEntry = phonebookEntries.get(0);
