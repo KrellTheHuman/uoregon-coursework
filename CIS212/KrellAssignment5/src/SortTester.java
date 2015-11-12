@@ -5,12 +5,10 @@ public class SortTester {
     // called after each sort
     public static boolean testAlphaSort(ArrayList<PhonebookEntry> phonebookEntries) {
 
-        PhonebookEntry minEntry = phonebookEntries.get(0);
-        for (PhonebookEntry phonebookEntry : phonebookEntries) {
-            if (phonebookEntry.getFullName().compareTo(minEntry.getFullName()) < 0) {
+        for (int i = 0; i < phonebookEntries.size() - 1; i++) {
+            if (phonebookEntries.get(i).getFullName().compareTo(phonebookEntries.get(i + 1).getFullName()) > 0) {
                 return false;
             }
-            minEntry = phonebookEntry;
         }
         return true;
     }

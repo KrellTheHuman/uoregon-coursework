@@ -23,9 +23,9 @@ public class SelectionSorter {
     public static ArrayList<PhonebookEntry> selectionSort(ArrayList<PhonebookEntry> phonebookEntries) {
 
         ArrayList<PhonebookEntry> sortPhonebookEntries = new ArrayList<>(phonebookEntries);
-        int minEntryIndex = 0;
         selectionSortComparisons = 0;
 
+        int minEntryIndex = 0;
         while (minEntryIndex < sortPhonebookEntries.size()) {
             for (int i = minEntryIndex; i < sortPhonebookEntries.size(); i++) {
                 if (sortPhonebookEntries.get(minEntryIndex).getFullName().compareTo(sortPhonebookEntries.get(i).getFullName()) > 0) {
