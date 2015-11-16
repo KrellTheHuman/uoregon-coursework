@@ -9,6 +9,8 @@ public class Main {
 
         //System.out.println(factorial(6));
         //System.out.println(fibonacci(6));
+        System.out.println(isPrime(45));
+        System.out.println(isPrime(7));
     }
 
     public static int factorial(int n) {
@@ -22,5 +24,12 @@ public class Main {
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
 
-    
+    public static boolean isPrime(int n) {
+        for (int i = 2; i < n; i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
