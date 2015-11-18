@@ -10,30 +10,34 @@ import java.util.stream.Stream;
 
 public class OccurrenceSet<T> implements Set<T> {
 
-    private HashMap<T, Integer> map;
+    private HashMap<T, Integer> _map;
 
     public OccurrenceSet() {
-        map = new HashMap<>();
+        _map = new HashMap<>();
+    }
+
+    public HashMap<T, Integer> getMap() {
+        return _map;
     }
 
     @Override
     public int size() {
-        return map.size();
+        return _map.size();
     }
 
     @Override
     public boolean isEmpty() {
-        return map.isEmpty();
+        return _map.isEmpty();
     }
 
     @Override
     public boolean contains(Object o) {
-        return map.containsKey(o);
+        return _map.containsKey(o);
     }
 
     @Override
     public Iterator<T> iterator() {
-        return map.keySet().iterator();
+        return _map.keySet().iterator();
     }
 
     /**
@@ -43,7 +47,7 @@ public class OccurrenceSet<T> implements Set<T> {
     @Override
     public Object[] toArray() {
         ArrayList<T> list = new ArrayList<>();
-        Stream<Map.Entry<T, Integer>> stream = map.entrySet().stream();
+        Stream<Map.Entry<T, Integer>> stream = _map.entrySet().stream();
         stream.sorted(Comparator.comparing(Map.Entry::getValue)).forEachOrdered(entry -> list.add(entry.getKey()));
         return list.toArray();
     }
@@ -51,22 +55,22 @@ public class OccurrenceSet<T> implements Set<T> {
     @Override
     @SuppressWarnings("unchecked")
     public <E> E[] toArray(E[] a) {
-        if (a.length < map.size())
-            return (E[]) Arrays.copyOf(toArray(), map.size(), a.getClass());
-        System.arraycopy(toArray(), 0, a, 0, map.size());
-        if (a.length > map.size())
-            a[map.size()] = null;
+        if (a.length < _map.size())
+            return (E[]) Arrays.copyOf(toArray(), _map.size(), a.getClass());
+        System.arraycopy(toArray(), 0, a, 0, _map.size());
+        if (a.length > _map.size())
+            a[_map.size()] = null;
         return a;
     }
 
     @Override
     public boolean add(T t) {
-        return map.put(t, map.get(t) == null ? 1 : map.get(t) + 1) == null;
+        return _map.put(t, _map.get(t) == null ? 1 : _map.get(t) + 1) == null;
     }
 
     @Override
     public boolean remove(Object o) {
-        return map.remove(o) != null;
+        return _map.remove(o) != null;
     }
 
     @Override
@@ -85,10 +89,21 @@ public class OccurrenceSet<T> implements Set<T> {
     @Override
     public boolean addAll(Collection<? extends T> c) {
         if (c.size() > 0) {
-            for (T entry : c) {
-                add(entry);
+            // if adding an instance of OccurrenceSet, adds the multiple occurrences of each entry
+            if (c instanceof OccurrenceSet) {
+                for (T entry : c) {
+                    for (int i = 0; i < (int) ((OccurrenceSet) c).getMap().get(entry); i++) {
+                        add(entry);
+                    }
+                }
+                return true;
+                // otherwise, just adds each entry
+            } else {
+                for (T entry : c) {
+                    add(entry);
+                }
+                return true;
             }
-            return true;
         }
         return false;
     }
@@ -97,7 +112,7 @@ public class OccurrenceSet<T> implements Set<T> {
     public boolean retainAll(Collection<?> c) {
         if (c.size() > 0) {
             boolean setChanged = false;
-            for (Map.Entry entry : map.entrySet()) {
+            for (Map.Entry entry : _map.entrySet()) {
                 if (!c.contains(entry)) {
                     remove(entry);
                     setChanged = true;
@@ -121,7 +136,7 @@ public class OccurrenceSet<T> implements Set<T> {
 
     @Override
     public void clear() {
-        map.clear();
+        _map.clear();
     }
 
     @Override
@@ -139,11 +154,11 @@ public class OccurrenceSet<T> implements Set<T> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         OccurrenceSet<?> that = (OccurrenceSet<?>) o;
-        return map.equals(that.map);
+        return _map.equals(that._map);
     }
 
     @Override
     public int hashCode() {
-        return map.hashCode();
+        return _map.hashCode();
     }
 }
