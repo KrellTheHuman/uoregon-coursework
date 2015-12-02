@@ -71,9 +71,9 @@ public class Client {
         String userInput = "";
         String command = "";
 
-        System.out.println("\nenter numbers to see which are prime.");
+        System.out.println("\nenter integers to see which are prime.");
         while (!command.equals("send") && !command.equals("quit") && !command.equals("shutdown")) {
-            System.out.println("enter a number, 'send' numbers, 'quit' client, or 'shutdown' server.");
+            System.out.println("enter an integer, 'send' numbers, 'quit' client, or 'shutdown' server.");
             if (scanner.hasNextInt()) {
                 userInputList.add(scanner.nextInt());
             } else if (scanner.hasNext()) {
