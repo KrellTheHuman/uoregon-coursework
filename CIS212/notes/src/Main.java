@@ -22,6 +22,24 @@ public class Main {
 //        System.out.println(arrayOfInts3.length);
         //System.out.println(smallestInteger(arrayOfInts3));
 
+//        int solutionCounter = 1;
+//        for (int x1 = 0; x1 <= 10; x1++) {
+//            for (int x2 = 0; x1 + x2 <= 10; x2++) {
+//                int x3 = 10 - x1 - x2;
+//                System.out.println("solution: " + solutionCounter++ + "  x1:" + x1 + "  x2:" + x2 + "  x3:" + x3);
+//            }
+//        }
+
+        int solutionCounter = 1;
+        for (int x1 = -2; x1 <= 4; x1++) {
+            for (int x2 = -2; x1 + x2 <= 4; x2++) {
+                for (int x3 = -2; x1 + x2 + x3 <= 4; x3++) {
+                    int x4 = 4 - x1 - x2 - x3;
+                    System.out.println("solution: " + solutionCounter++ + "  x1:" + x1 + "  x2:" + x2 + "  x3:" + x3 + "  x4:" + x4);
+                }
+            }
+        }
+
 
 
     }
